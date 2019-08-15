@@ -1,4 +1,4 @@
-# A scatter plot controlled by slider with PyQtGraph
+# Slow rendering when changing the colors of a scatter plot controlled by a slider
 
 The dependencies are mangaed by Conda, so for running the example you can simply use the following:
 
