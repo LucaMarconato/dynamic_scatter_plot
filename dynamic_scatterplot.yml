@@ -1,0 +1,9 @@
+name: dynamic_scatterplot
+channels:
+  - anaconda
+  - conda-forge
+dependencies:
+  - python >=3.6
+  - numpy
+  - pyqtgraph
+  - matplotlib
