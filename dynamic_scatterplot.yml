@@ -1,4 +1,4 @@
-name: dynamic_scatterplot
+name: dynamic_scatter_plot
 channels:
   - anaconda
   - conda-forge
