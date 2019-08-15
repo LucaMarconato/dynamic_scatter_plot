@@ -10,7 +10,7 @@ conda activate dynamic_scatter_plot
 python dynamic_scatter_plot.py
 ```
 
-Output:
+Output, note the slider lagging behind the cursor:
 
 ![](dynamic_scatter_plot.gif)
 
