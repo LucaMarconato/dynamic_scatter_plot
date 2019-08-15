@@ -1,4 +1,4 @@
-# Slow rendering when changing the colors of a scatter plot controlled by a slider
+# Slow rendering when changing the colors of a scatter plot
 
 The dependencies are mangaed by Conda, so for running the example you can simply use the following:
 
