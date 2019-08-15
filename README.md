@@ -1,6 +1,6 @@
 # Slow rendering when changing the colors of a scatter plot
 
-The dependencies are mangaed by Conda, so for running the example you can simply use the following:
+The dependencies are managed by Conda, so for running the example you can simply use the following:
 
 ```
 git clone https://github.com/LucaMarconato/dynamic_scatter_plot.git
