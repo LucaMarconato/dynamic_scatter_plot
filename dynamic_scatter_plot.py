@@ -19,10 +19,10 @@ class DynamicScatterPlot(QtGui.QWidget):
         self.data = np.random.rand(2000, 2)
         self.intensity_channels = [np.random.rand(2000) for _ in range(100)]
 
-        self.slider = QtWidgets.QSlider(QtCore.Qt.Orientation.Horizontal)
-        self.slider.setTickPosition(QtWidgets.QSlider.TickPosition.TicksBothSides)
+        self.slider = QtWidgets.QSlider(QtCore.Qt.Horizontal)
+        self.slider.setTickPosition(QtWidgets.QSlider.TicksBothSides)
         self.slider.setRange(0, 100)
-        self.slider.setFocusPolicy(QtCore.Qt.FocusPolicy.StrongFocus)
+        self.slider.setFocusPolicy(QtCore.Qt.StrongFocus)
         self.slider.setFocus()
         self.slider.setTickInterval(1)
         self.slider.valueChanged.connect(lambda x: self.scatter_plot(x))
@@ -62,6 +62,8 @@ class DynamicScatterPlot(QtGui.QWidget):
 
 
 if __name__ == '__main__':
+    print(f'PyQtGraph version: {pg.__version__}')
+    print(f'Qt Python binding: {pg.Qt.VERSION_INFO}')
     if sys.flags.interactive != 1 or not hasattr(QtCore, 'PYQT_VERSION'):
         app = pg.mkQApp()
         viewer = DynamicScatterPlot()
