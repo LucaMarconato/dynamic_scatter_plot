@@ -3,7 +3,7 @@
 The dependencies are mangaed by Conda, so for running the example you can simply use the following:
 
 ```
-clone https://github.com/LucaMarconato/dynamic_scatter_plot.git
+git clone https://github.com/LucaMarconato/dynamic_scatter_plot.git
 cd dynamic_scatter_plot
 conda env create -f dynamic_scatter_plot.yml
 conda activate dynamic_scatter_plot
