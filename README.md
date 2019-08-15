@@ -15,4 +15,4 @@ Output:
 ![](dynamic_scatter_plot.gif)
 
 ### Notes
-I belive that the rendering could be made more performant since we are changing only the colors of the points and not their positions.
+I believe that the rendering could be made more performant since we are changing only the colors of the points and not their positions.
