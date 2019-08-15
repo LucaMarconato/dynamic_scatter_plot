@@ -1,9 +1,6 @@
 name: dynamic_scatter_plot
-channels:
-  - anaconda
-  - conda-forge
 dependencies:
   - python >=3.6
-  - numpy
-  - pyqtgraph
-  - matplotlib
+  - anaconda::numpy
+  - anaconda::pyqtgraph
+  - conda_forge::matplotlib
