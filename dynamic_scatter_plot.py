@@ -6,6 +6,7 @@ import numpy as np
 import pyqtgraph as pg
 from pyqtgraph.Qt import QtGui, QtCore, QtWidgets
 
+points_count = 10 ** 4
 
 class DynamicScatterPlot(QtGui.QWidget):
     def __init__(self):
@@ -13,11 +14,13 @@ class DynamicScatterPlot(QtGui.QWidget):
         layout = QtGui.QVBoxLayout()
         self.setLayout(layout)
 
-        self.graphics_layout_widget = pg.GraphicsLayoutWidget()
-        self.plot_widget = self.graphics_layout_widget.addPlot()
+        # self.graphics_layout_widget = pg.GraphicsLayoutWidget()
+        self.graphics_layout_widget = pg.PlotWidget()
+        # self.plot_widget = self.graphics_layout_widget.addPlot()
+        self.plot_widget = self.graphics_layout_widget
         self.scatter_plot_item = None
-        self.data = np.random.rand(2000, 2)
-        self.intensity_channels = [np.random.rand(2000) for _ in range(100)]
+        self.data = np.random.rand(points_count, 2)
+        self.intensity_channels = [np.random.rand(points_count) for _ in range(points_count)]
 
         self.slider = QtWidgets.QSlider(QtCore.Qt.Horizontal)
         self.slider.setTickPosition(QtWidgets.QSlider.TicksBothSides)
@@ -49,15 +52,25 @@ class DynamicScatterPlot(QtGui.QWidget):
         print(f'creating brushes: {time.time() - start}')
         if self.scatter_plot_item is None:
             start = time.time()
+            # from pyqtgraph.opengl import GLScatterPlotItem
+            # import numpy as np
+            # self.scatter_plot_item = GLScatterPlotItem(pos=np.random.random((10000, 3)),
+            #                                            color=np.random.random((10000, 4)))
+
             self.scatter_plot_item = pg.ScatterPlotItem(size=10, pen=pg.mkPen(None))
             self.scatter_plot_item.clear()
             self.scatter_plot_item.setData(pos=self.data, brush=brushes)
+            # self.scatter_plot_item.setData(pos=self.data, brush='b')
             self.plot_widget.clear()
             self.plot_widget.addItem(self.scatter_plot_item)
             print(f'first rendering: {time.time() - start}')
         else:
             start = time.time()
+            # brushes = [QtGui.QBrush(QtGui.QColor(255, 255, 255, 255)) for _ in range(len(brushes))]
             self.scatter_plot_item.setBrush(brushes)
+            # brush = QtGui.QBrush(QtGui.QColor(255, 255, 255, 255))
+            # self.scatter_plot_item.setBrush(brush)
+            self.plot_widget.repaint()
             print(f'updating colors: {time.time() - start}')
 
 
